@@ -1,11 +1,14 @@
+import Link from 'next/link';
+
 const Header = () => {
   return (
     <header className="flex justify-between">
       <div className="flex flex-start">
-        <h1 className="text-2xl font-bold">Experiments</h1>
-      </div>
-      <div>
-        <button className="font-bold text-md">menu</button>
+        <Link href={'/'} passHref>
+          <a>
+            <h1 className="text-2xl font-bold">Experiments</h1>
+          </a>
+        </Link>
       </div>
     </header>
   );
