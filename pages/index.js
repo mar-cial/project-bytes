@@ -1,82 +1,171 @@
-import Head from 'next/head'
+import { AnimateSharedLayout, motion } from 'framer-motion';
+import { useState } from 'react';
+import Plus from '../components/plus';
+import Minus from '../components/minus';
+import Reset from '../components/reset';
+import Counter from '../components/counter';
+import ArticleReasonHeader from '../components/articleReasonHeader';
+import SectionHeader from '../components/sectionHeader';
+import { v4 as uuid } from 'uuid';
+import UserCard from '../components/userCard';
+import Usericon from '../components/usericon';
 
-export default function Home() {
+const Home = () => {
+  const [counter, setCounter] = useState(0);
+  const [animated, setAnimated] = useState(false);
+
+  const users = [
+    {
+      firstName: 'César',
+      lastName: 'Marcial',
+      address: [
+        {
+          street: 'Calle 12 Colonia Sinaloa',
+          state: 'Baja California',
+          city: 'Mexicali',
+          zip: 21330,
+        },
+      ],
+
+      img: '/cesar',
+      id: uuid(),
+    },
+    {
+      firstName: 'Alexa',
+      lastName: 'Macías',
+      address: [
+        {
+          street: 'Blvd. Lázaro Colonia Verde',
+          state: 'Baja California',
+          city: 'Mexicali',
+          zip: 21330,
+        },
+      ],
+      img: '/alexa',
+      id: uuid(),
+    },
+    {
+      firstName: 'Sacbé',
+      lastName: 'Medrano',
+      address: [
+        {
+          street: 'Calle 523 Colonia Naranja',
+          state: 'Baja California',
+          city: 'Mexicali',
+          zip: 21330,
+        },
+      ],
+
+      img: '/sacbé',
+      id: uuid(),
+    },
+  ];
+
+  const increase = () => {
+    setCounter(counter + 1);
+    setAnimated(true);
+    setTimeout(() => {
+      setAnimated(false);
+    }, 100);
+  };
+  const decrease = () => {
+    if (counter === 0) {
+    } else {
+      setCounter(counter - 1);
+      setAnimated(true);
+      setTimeout(() => {
+        setAnimated(false);
+      }, 100);
+    }
+  };
+  const reset = () => {
+    setCounter(0);
+    setAnimated(true);
+    setTimeout(() => {
+      setAnimated(false);
+    }, 100);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <main className="">
+      <h2 className="text-5xl font-bold">Home</h2>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <section className="grid gap-6 lg:grid-cols-2 py-6">
+        <article>
+          <SectionHeader text={'Counter animations'} date={'1 marzo 2022'} />
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+          <ArticleReasonHeader text={'why I did this'} />
+          <p>
+            Counters + framer motion is a great way to showcase that you have
+            some understanding of useState, timeouts and basic animations.
+          </p>
+          <ArticleReasonHeader text={'how I did this'} />
+        </article>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+        <div className="grid gap-4 border-2 p-2 rounded-md max-h-32 bg-gray-500 text-white">
+          <div>
+            <Counter qty={counter} animation={animated} />
+          </div>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <div className="grid grid-cols-3 border-2 gap-2 rounded-md p-2">
+            <motion.button
+              className="border-2 flex justify-center py-1 bg-gray-600"
+              onClick={increase}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+            >
+              <Plus />
+            </motion.button>
+            <motion.button
+              className="border-2 flex justify-center py-1 bg-gray-600"
+              onClick={decrease}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+            >
+              <Minus />
+            </motion.button>
+            <motion.button
+              className="border-2 flex justify-center py-1 bg-gray-600"
+              onClick={reset}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+            >
+              <Reset />
+            </motion.button>
+          </div>
         </div>
-      </main>
+      </section>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
-  )
-}
+      <section className="lg:grid-cols-2 grid gap-6">
+        <article>
+          <SectionHeader
+            text={'Shared layout animations'}
+            date={'2 marzo 2022'}
+          />
+          <ArticleReasonHeader text="Why I did this" />
+          <p>
+            {`Sometimes you don't want to reveal the whole info of an object from
+            the start to avoid clutter. Animations that reveal more information
+            when clicked make a website feel more interactive, and it's very
+            important to make sure that the elements are rendering correctly. To
+            do this, every element needs to know which other elements are going
+            to dissappear from the render tree. This is achieved with a combination of <AnimateSharedLayout /> and <AnimatePresence />
+            `}
+          </p>
+        </article>
+
+        <AnimateSharedLayout>
+          <motion.aside className="bg-gray-500 p-2 text-white" layout>
+            <motion.ul layout className="grid gap-4">
+              {users.map((user, i) => (
+                <UserCard user={user} key={i} />
+              ))}
+            </motion.ul>
+          </motion.aside>
+        </AnimateSharedLayout>
+      </section>
+    </main>
+  );
+};
+
+export default Home;
