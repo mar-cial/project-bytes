@@ -2,21 +2,15 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import PageTitle from '../../components/pageTitle';
 import { motion } from 'framer-motion';
+import extraProjectBytes from '../../data/extraProjectBytes';
 
 const ExtraProjectBytes: FC = () => {
-  const extras = [
-    {
-      projectName: 'Networking',
-      url: '/networking',
-      date: '3 marzo 2022',
-    },
-  ];
   return (
-    <main>
+    <motion.main layout>
       <PageTitle title="Extra Project bytes" />
       <nav>
         <ul className="grid gap-4 pt-6">
-          {extras.map((v, i) => {
+          {extraProjectBytes.map((v, i) => {
             return (
               <Link href={v.url} key={i}>
                 <motion.div
@@ -34,7 +28,7 @@ const ExtraProjectBytes: FC = () => {
           })}
         </ul>
       </nav>
-    </main>
+    </motion.main>
   );
 };
 
