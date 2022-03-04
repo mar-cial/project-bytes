@@ -7,7 +7,7 @@ interface IMainLayout {
 
 const MainLayout: FC<IMainLayout> = ({ children }) => {
   return (
-    <div className="p-4 dark:bg-black dark:text-white h-screen">
+    <div className="p-4 dark:bg-black dark:text-white h-screen overflow-scroll">
       <Header />
 
       {children}

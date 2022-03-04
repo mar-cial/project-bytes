@@ -8,7 +8,8 @@ import ArticleReasonHeader from '../components/articleReasonHeader';
 import SectionHeader from '../components/sectionHeader';
 import { v4 as uuid } from 'uuid';
 import UserCard from '../components/userCard';
-import Usericon from '../components/usericon';
+import PageTitle from '../components/pageTitle';
+import Link from 'next/link';
 
 const Home = () => {
   const [counter, setCounter] = useState(0);
@@ -87,14 +88,14 @@ const Home = () => {
   };
 
   return (
-    <main className="">
-      <h2 className="text-5xl font-bold">Home</h2>
+    <main>
+      <PageTitle title="Home" />
 
-      <section className="grid gap-6 lg:grid-cols-2 py-6">
+      <section className="grid gap-6 lg:grid-cols-2 pb-4">
         <article>
           <SectionHeader text={'Counter animations'} date={'1 marzo 2022'} />
 
-          <ArticleReasonHeader text={'why I did this'} />
+          <ArticleReasonHeader text={'Why I did this'} />
           <p>
             Counters + framer motion is a great way to showcase that you have
             some understanding of useState, timeouts and basic animations.
@@ -102,7 +103,7 @@ const Home = () => {
           <ArticleReasonHeader text={'how I did this'} />
         </article>
 
-        <div className="grid gap-4 border-2 p-2 rounded-md max-h-32 bg-gray-500 text-white">
+        <div className="grid gap-4 p-2 max-h-32 bg-gray-500 text-white">
           <div>
             <Counter qty={counter} animation={animated} />
           </div>
@@ -136,7 +137,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="lg:grid-cols-2 grid gap-6">
+      <section className="lg:grid-cols-2 grid gap-6 pb-4">
         <article>
           <SectionHeader
             text={'Shared layout animations'}
@@ -164,6 +165,24 @@ const Home = () => {
           </motion.aside>
         </AnimateSharedLayout>
       </section>
+
+      <article>
+        <SectionHeader text={'Network calls'} date={'3 marzo 2022'} />
+        <ArticleReasonHeader text="Why I did this" />
+        <p>
+          {`
+          I like how easy it is to make network calls with fetch API, combined with getStaticProps which runs at build time, there is virtually no waiting time to load data from an external API.
+          It's getting kinda crowded here, and to properly show all what I intend to show, I'm gonna put it in it's own page. Maybe I should do that for every bigger sizes project byte... we'll see tomorrow.
+            `}
+        </p>
+        <p>
+          Here's a{' '}
+          <Link href={'/networking'} passHref>
+            <a className="text-orange-500">link</a>
+          </Link>{' '}
+          to the Networking page.
+        </p>
+      </article>
     </main>
   );
 };
