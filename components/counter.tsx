@@ -37,11 +37,11 @@ const Counter: FC = () => {
   return (
     <>
       <motion.p
-        className="font-bold text-2xl"
+        className="font-bold text-2xl text-white bg-gray-500"
         variants={counterVariants}
         animate={animated ? 'start' : 'stop'}
       >{`Counter: ${counter}`}</motion.p>
-      <div className="grid grid-cols-3 gap-2 rounded-md bg-gray-400 p-1">
+      <div className="grid grid-cols-3 gap-2 p-1 text-white bg-gray-400">
         <motion.button
           className="flex justify-center items-center py-1 bg-gray-600"
           onClick={increase}
@@ -59,7 +59,7 @@ const Counter: FC = () => {
           <Minus />
         </motion.button>
         <motion.button
-          className="flex justify-center items-center py-1 bg-gray-600"
+          className="flex justify-center items-center py-1 bg-gray-600 "
           onClick={reset}
           whileHover={{ y: -2 }}
           whileTap={{ y: 0 }}

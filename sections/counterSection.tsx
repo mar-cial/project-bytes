@@ -6,19 +6,19 @@ import { motion } from 'framer-motion';
 
 const CounterSection = () => {
   return (
-    <motion.section className="grid gap-6 lg:grid-cols-2 pb-4" layout>
-      <article>
+    <motion.section className="grid lg:grid-cols-2" layout>
+      <article className="grid gap-2">
         <SectionHeader text={'Counter animations'} date={'1 marzo 2022'} />
 
-        <ArticleReasonHeader text={'Why I did this'} />
-        <p>
-          Counters + framer motion is a great way to showcase that you have some
-          understanding of useState, timeouts and basic animations.
-        </p>
-        <ArticleReasonHeader text={'how I did this'} />
+        <div>
+          <ArticleReasonHeader text={'Why I did this'} />
+          <p>
+            Counters + framer motion is a great way to showcase that you have
+            some understanding of useState, timeouts and basic animations.
+          </p>
+        </div>
       </article>
-
-      <div className="grid gap-4 p-2 max-h-32 bg-gray-500 text-white">
+      <div className="bg-gray-500 p-2">
         <Counter />
       </div>
     </motion.section>

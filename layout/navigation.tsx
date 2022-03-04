@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import navbarAnimations from '../animations/navbarAnimations';
 const Navbar = () => {
   return (
     <motion.nav
       className={'font-mono flex justify-end text-right'}
       layout
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: 70, opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
+      variants={navbarAnimations}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
     >
       <motion.div className="flex flex-col">
         <Link href={'/navigation'} passHref>

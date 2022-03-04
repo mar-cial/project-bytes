@@ -6,12 +6,11 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
   return (
     <AnimateSharedLayout>
+      <Head>
+        <title>Project Bytes</title>
+        <link rel="icon" type="image/x-icon" href="/logo.ico" />
+      </Head>
       <MainLayout>
-        <Head>
-          <title>Project Bytes</title>
-          <link rel="icon" type="image/x-icon" href="/logo.ico" />
-        </Head>
-
         <Component {...pageProps} />
       </MainLayout>
     </AnimateSharedLayout>
