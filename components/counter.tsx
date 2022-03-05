@@ -26,6 +26,7 @@ const Counter: FC = () => {
       }, 100);
     }
   };
+
   const reset = () => {
     setCounter(0);
     setAnimated(true);
@@ -34,40 +35,37 @@ const Counter: FC = () => {
     }, 100);
   };
 
+  const controls = [
+    { fn: increase, img: <Plus /> },
+    { fn: decrease, img: <Minus /> },
+    { fn: reset, img: <Reset /> },
+  ];
+
   return (
-    <>
-      <motion.p
-        className="font-bold text-2xl text-white bg-gray-500"
-        variants={counterVariants}
-        animate={animated ? 'start' : 'stop'}
-      >{`Counter: ${counter}`}</motion.p>
-      <div className="grid grid-cols-3 gap-2 p-1 text-white bg-gray-400">
-        <motion.button
-          className="flex justify-center items-center py-1 bg-gray-600"
-          onClick={increase}
-          whileHover={{ y: -2 }}
-          whileTap={{ y: 0 }}
-        >
-          <Plus />
-        </motion.button>
-        <motion.button
-          className="flex justify-center items-center py-1 bg-gray-600"
-          onClick={decrease}
-          whileHover={{ y: -2 }}
-          whileTap={{ y: 0 }}
-        >
-          <Minus />
-        </motion.button>
-        <motion.button
-          className="flex justify-center items-center py-1 bg-gray-600 "
-          onClick={reset}
-          whileHover={{ y: -2 }}
-          whileTap={{ y: 0 }}
-        >
-          <Reset />
-        </motion.button>
+    <div className="grid items-center grid-cols-2 gap-2 text-white bg-gray-500">
+      <div className="px-2">
+        <motion.p
+          variants={counterVariants}
+          animate={animated ? 'start' : 'stop'}
+          className={'text-2xl font-bold bg-gray-400 pl-2'}
+        >{`Counter: ${counter}`}</motion.p>
       </div>
-    </>
+      <div className="grid grid-cols-3 gap-2 p-2">
+        {controls.map((func, i) => {
+          return (
+            <motion.button
+              onClick={func.fn}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+              key={i}
+              className={'flex justify-center items-center bg-gray-400 py-1'}
+            >
+              {func.img}
+            </motion.button>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

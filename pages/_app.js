@@ -5,7 +5,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AnimateSharedLayout>
+    <>
       <Head>
         <title>Project Bytes</title>
         <link rel="icon" type="image/x-icon" href="/logo.ico" />
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       <MainLayout>
         <Component {...pageProps} />
       </MainLayout>
-    </AnimateSharedLayout>
+    </>
   );
 }
 

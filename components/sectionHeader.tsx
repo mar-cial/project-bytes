@@ -8,7 +8,7 @@ interface ISectionHeader {
 const SectionHeader: FC<ISectionHeader> = ({ text, date }) => {
   return (
     <header>
-      <h2 className="font-bold text-3xl pt-4">{text}</h2>
+      <h2 className="font-bold text-3xl">{text}</h2>
       <p className="font-semibold text-orange-400 text-sm">{date}</p>
     </header>
   );

@@ -2,7 +2,12 @@ const extraProjectBytes = [
   {
     projectName: 'Networking',
     url: '/networking',
-    date: '3 marzo 2022',
+    date: 'March 3, 2022',
+  },
+  {
+    projectName: 'TypeScript Cart',
+    url: '/cart',
+    date: 'March 4, 2022',
   },
 ];
 

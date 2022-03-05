@@ -3,10 +3,12 @@ import CounterSection from '../sections/counterSection';
 import SharedLayoutSection from '../sections/sharedLayoutSection';
 import NetworkingSection from '../sections/networkingSection';
 import { motion } from 'framer-motion';
+import { FC } from 'react';
+import CartSection from '../sections/cartSection';
 
-const Home = () => {
+const Home: FC = () => {
   return (
-    <motion.main layout>
+    <motion.main className="grid gap-6" layout>
       <PageTitle title="Home" />
 
       {/* Counter section */}
@@ -17,6 +19,9 @@ const Home = () => {
 
       {/* Networking section */}
       <NetworkingSection />
+
+      {/* Typescript cart section */}
+      <CartSection />
     </motion.main>
   );
 };

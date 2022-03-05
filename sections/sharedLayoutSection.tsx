@@ -7,11 +7,11 @@ import UserCard from '../components/userCard';
 
 const SharedLayoutSection = () => {
   return (
-    <motion.section className="lg:grid-cols-2 grid gap-6 pb-4" layout>
+    <motion.section className="grid gap-6 pb-4 md:grid-cols-2" layout>
       <article>
         <SectionHeader
           text={'Shared layout animations'}
-          date={'2 marzo 2022'}
+          date={'March 2, 2022'}
         />
         <ArticleReasonHeader text="Why I did this" />
         <p>
@@ -26,13 +26,13 @@ const SharedLayoutSection = () => {
       </article>
 
       <AnimateSharedLayout>
-        <motion.aside className="bg-gray-500 p-2 text-white" layout>
+        <motion.div className="p-2 text-white bg-gray-500 ">
           <motion.ul layout className="grid gap-4">
             {users.map((user, i) => (
               <UserCard user={user} key={i} />
             ))}
           </motion.ul>
-        </motion.aside>
+        </motion.div>
       </AnimateSharedLayout>
     </motion.section>
   );

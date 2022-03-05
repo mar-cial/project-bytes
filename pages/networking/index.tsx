@@ -8,7 +8,7 @@ type UserPropTitleTextProps = {
   text: string;
 };
 const UserPropTitleText = (props: UserPropTitleTextProps) => (
-  <h3 className="text-gray-500 font-semibold text-md">{props.text}</h3>
+  <h3 className="font-semibold text-gray-500 text-md">{props.text}</h3>
 );
 
 export interface User {
@@ -71,8 +71,8 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
         .
       </p>
       <section>
-        <h3>Users</h3>
-        <section className="grid lg:grid-cols-4 gap-4">
+        <h3 className="py-2 text-2xl font-bold">Users</h3>
+        <section className="grid gap-4 lg:grid-cols-4">
           {users.map((user, i) => {
             return (
               <article className="grid p-2 border-2" key={i}>
@@ -88,7 +88,7 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
                   <p>{user.phone}</p>
                   <UserPropTitleText text="company" />
                   <p className="font-semibold">{user.company.name}</p>
-                  <p className="italic text-sm text-gray-400">
+                  <p className="text-sm italic text-gray-400">
                     {`"${user.company.catchPhrase}"`}
                   </p>
                 </div>

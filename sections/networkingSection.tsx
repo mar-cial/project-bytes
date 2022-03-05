@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 
 const NetworkingSection = () => {
   return (
-    <motion.section layout>
+    <section>
       <article>
-        <SectionHeader text={'Network calls'} date={'3 marzo 2022'} />
+        <SectionHeader text={'Network calls'} date={'March 3, 2022'} />
         <ArticleReasonHeader text="Why I did this" />
         <p>
           {`
@@ -24,7 +24,7 @@ const NetworkingSection = () => {
           to the Networking page.
         </p>
       </article>
-    </motion.section>
+    </section>
   );
 };
 
