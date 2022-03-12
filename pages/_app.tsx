@@ -1,20 +1,20 @@
-import { AnimateSharedLayout } from 'framer-motion';
-import Head from 'next/head';
 import MainLayout from '../layout/mainlayout';
+import Head from 'next/head';
+import { AppProps } from 'next/app';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+const ProjectBytes = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
         <title>Project Bytes</title>
-        <link rel="icon" type="image/x-icon" href="/logo.ico" />
+        <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
       </Head>
       <MainLayout>
         <Component {...pageProps} />
       </MainLayout>
     </>
   );
-}
+};
 
-export default MyApp;
+export default ProjectBytes;

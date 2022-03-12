@@ -1,15 +1,12 @@
 import { FC } from 'react';
-import Header from './header';
 
-interface IMainLayout {
+type MainLayoutProps = {
   children: React.ReactNode;
-}
+};
 
-const MainLayout: FC<IMainLayout> = ({ children }) => {
+const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="p-4 dark:bg-black dark:text-white h-screen overflow-scroll">
-      <Header />
-
+    <div className="grid min-h-screen p-2 dark:bg-black dark:text-white md:grid-cols-12 sm:grid-cols-6">
       {children}
     </div>
   );

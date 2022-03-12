@@ -1,8 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import React from 'react';
-import MainLink from '../../components/mainLink';
-import PageTitle from '../../components/pageTitle';
-import { motion } from 'framer-motion';
+import MainLink from '../../../components/mainLink';
+import PageTitle from '../../../components/pageTitle';
+import PageLayout from '../../../layout/pagelayout';
 
 type UserPropTitleTextProps = {
   text: string;
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <motion.main layout>
+    <PageLayout>
       <PageTitle title="Networking" />
       <p>
         In this project byte, I used{' '}
@@ -72,7 +72,7 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
       </p>
       <section>
         <h3 className="py-2 text-2xl font-bold">Users</h3>
-        <section className="grid gap-4 lg:grid-cols-4">
+        <section className="grid gap-4 pb-4 lg:grid-cols-2">
           {users.map((user, i) => {
             return (
               <article className="grid p-2 border-2" key={i}>
@@ -97,7 +97,7 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
           })}
         </section>
       </section>
-    </motion.main>
+    </PageLayout>
   );
 }
 

@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { FC, useState } from 'react';
 import Plus from '../components/plus';
 import Minus from '../components/minus';
 import Reset from '../components/reset';
+import { motion } from 'framer-motion';
+import { FC, useState } from 'react';
 import { counterVariants } from '../animations/counterAnimations';
 
-const Counter: FC = () => {
+const CounterComponent: FC = () => {
   const [counter, setCounter] = useState(0);
   const [animated, setAnimated] = useState(false);
 
@@ -50,6 +50,7 @@ const Counter: FC = () => {
           className={'text-2xl font-bold bg-gray-400 pl-2'}
         >{`Counter: ${counter}`}</motion.p>
       </div>
+
       <div className="grid grid-cols-3 gap-2 p-2">
         {controls.map((func, i) => {
           return (
@@ -69,4 +70,4 @@ const Counter: FC = () => {
   );
 };
 
-export default Counter;
+export default CounterComponent;

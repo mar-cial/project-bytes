@@ -1,7 +1,8 @@
-import React, { FC, MouseEventHandler, useState } from 'react';
-import PageTitle from '../../components/pageTitle';
+import React, { FC, useState } from 'react';
+import PageTitle from '../../../components/pageTitle';
 import Image from 'next/image';
-import products from '../../data/products';
+import products from '../../../data/products';
+import PageLayout from '../../../layout/pagelayout';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
 type CartProductIconProps = {
@@ -34,31 +35,16 @@ const CartPage: FC = () => {
   };
 
   return (
-    <main>
+    <PageLayout>
       <PageTitle title="TypeScript Cart" />
 
-      <section className="grid gap-2 py-4 md:grid-cols-12">
-        {/* Product Icons */}
-        <div className={'md:col-span-3 grid grid-cols-3 md:grid-cols-2 gap-2'}>
-          {products.map((prod, i) => {
-            return (
-              <CartProductIcon
-                image={prod.img}
-                key={i}
-                action={() => {
-                  setSelectedProduct(i);
-                }}
-              />
-            );
-          })}
-        </div>
-
+      <section className="grid gap-2 py-4 ">
         {/* Product details */}
         <AnimateSharedLayout>
           <AnimatePresence>
             <div
               className={
-                'md:col-span-6 md:border-x-2 md:border-y-0 border-y-2 py-4 md:px-4 grid md:grid-cols-2 gap-4'
+                'md:col-span-6  py-4 md:px-4 grid md:grid-cols-2 gap-4'
               }
             >
               <div className={`bg-red-300 rounded-full md:h-2/3`}>
@@ -122,6 +108,21 @@ const CartPage: FC = () => {
           </AnimatePresence>
         </AnimateSharedLayout>
 
+        {/* Product Icons */}
+        <div className={'md:col-span-3 grid grid-cols-3 gap-2 md:h-56'}>
+          {products.map((prod, i) => {
+            return (
+              <CartProductIcon
+                image={prod.img}
+                key={i}
+                action={() => {
+                  setSelectedProduct(i);
+                }}
+              />
+            );
+          })}
+        </div>
+
         {/* Cart */}
         <div className={'md:col-span-3 grid gap-2'}>
           <h2 className={'font-bold text-3xl'}>Cart</h2>
@@ -175,7 +176,7 @@ const CartPage: FC = () => {
           </div>
         </div>
       </section>
-    </main>
+    </PageLayout>
   );
 };
 

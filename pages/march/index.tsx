@@ -14,12 +14,12 @@ const ExtraProjectBytes: FC = () => {
             return (
               <Link href={v.url} key={i}>
                 <motion.div
-                  className="border-2 text-center cursor-pointer py-2"
+                  className="py-2 text-center border-2 cursor-pointer"
                   whileHover={{ y: -4 }}
                   whileTap={{ y: 0 }}
                 >
-                  <li className="font-bold text-4xl">{v.projectName}</li>
-                  <p className="font-medium text-md text-orange-500">
+                  <li className="text-4xl font-bold">{v.projectName}</li>
+                  <p className="font-medium text-orange-500 text-md">
                     {v.date}
                   </p>
                 </motion.div>
