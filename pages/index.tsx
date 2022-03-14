@@ -32,7 +32,6 @@ const Home: NextPage = () => {
             <ProjectCell
               title={project.title}
               url={project.url}
-              date={project.date}
               info={project.info}
               key={i}
             />

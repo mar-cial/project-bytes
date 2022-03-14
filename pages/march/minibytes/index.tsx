@@ -18,12 +18,6 @@ const Counter: NextPage = () => {
             source code.
           </a>
         </p>
-        <Image
-          src={'/carbon.png'}
-          width={1000}
-          height={2000}
-          layout="responsive"
-        />
       </section>
     </PageLayout>
   );

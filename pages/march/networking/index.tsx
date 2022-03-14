@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 import React from 'react';
 import MainLink from '../../../components/mainLink';
 import PageTitle from '../../../components/pageTitle';
@@ -73,7 +74,7 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
       <section>
         <h3 className="py-2 text-2xl font-bold">Users</h3>
         <section className="grid gap-4 pb-4 lg:grid-cols-2">
-          {users.map((user, i) => {
+          {users.map((user: User, i) => {
             return (
               <article className="grid p-2 border-2" key={i}>
                 <header className="text-lg font-medium border-b-2">
@@ -91,6 +92,11 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
                   <p className="text-sm italic text-gray-400">
                     {`"${user.company.catchPhrase}"`}
                   </p>
+                  <Link href={`/march/networking/${user.id}`} passHref>
+                    <a className="text-orange-400 transition-colors hover:text-orange-600">
+                      More details{' '}
+                    </a>
+                  </Link>
                 </div>
               </article>
             );

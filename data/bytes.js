@@ -2,13 +2,13 @@ const projectBytesData = [
   {
     title: 'Networking',
     url: '/march/networking',
-    info: 'This project calls JSONPlaceholder API using GET method and displays the results.',
+    info: 'Making network requests to a REST API.',
   },
   {
-    title: 'Counter',
-    url: '/march/counter',
+    title: 'Mini bytes',
+    url: '/march/minibytes',
 
-    info: 'Small counter with some simple animations controlled by state.',
+    info: 'Very small projects.',
   },
   {
     title: 'Cart',
