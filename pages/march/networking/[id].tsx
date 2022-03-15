@@ -55,7 +55,7 @@ const UserDetail: FC<UserDetailProps> = ({ user }) => {
           <p>
             {`${user.username} ${user.address.suite}`}
             <br />
-            {`${user.address.city} ${user.address} ${user.address.zipcode}`}
+            {`${user.address.city} ${user.address.zipcode}`}
           </p>
 
           <Detailtitle text={'geo location'} />

@@ -42,12 +42,12 @@ const CounterComponent: FC = () => {
   ];
 
   return (
-    <div className="grid items-center grid-cols-2 gap-2 text-white bg-gray-500">
+    <div className="grid items-center grid-cols-2 gap-2 text-white bg-violet-400">
       <div className="px-2">
         <motion.p
           variants={counterVariants}
           animate={animated ? 'start' : 'stop'}
-          className={'text-2xl font-bold bg-gray-400 pl-2'}
+          className={'text-2xl font-bold bg-violet-300 pl-2'}
         >{`Counter: ${counter}`}</motion.p>
       </div>
 
@@ -59,7 +59,7 @@ const CounterComponent: FC = () => {
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               key={i}
-              className={'flex justify-center items-center bg-gray-400 py-1'}
+              className={'flex justify-center items-center bg-violet-300 py-1'}
             >
               {func.img}
             </motion.button>

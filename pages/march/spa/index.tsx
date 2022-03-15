@@ -19,10 +19,20 @@ const Spa: NextPage = () => {
         <h3>Repo resources:</h3>
         <ul>
           <li>
-            <a href="https://github.com/mar-cial/flexstrip">GitHub</a>
+            <a
+              href="https://github.com/mar-cial/flexstrip"
+              className="text-orange-400 transition-all hover:text-orange-500"
+            >
+              GitHub
+            </a>
           </li>
           <li>
-            <a href="https://flexstrip.vercel.app">Live website</a>
+            <a
+              href="https://flexstrip.vercel.app"
+              className="text-orange-400 transition-all hover:text-orange-500"
+            >
+              Live website
+            </a>
           </li>
         </ul>
       </section>

@@ -4,13 +4,7 @@ import React from 'react';
 import MainLink from '../../../components/mainLink';
 import PageTitle from '../../../components/pageTitle';
 import PageLayout from '../../../layout/pagelayout';
-
-type UserPropTitleTextProps = {
-  text: string;
-};
-const UserPropTitleText = (props: UserPropTitleTextProps) => (
-  <h3 className="font-semibold text-gray-500 text-md">{props.text}</h3>
-);
+import UserPropTitleText from '../../../components/UserPropTitleText';
 
 export interface User {
   id: number;
@@ -71,6 +65,7 @@ function Networking({ users }: InferGetStaticPropsType<typeof getStaticProps>) {
         />
         .
       </p>
+
       <section>
         <h3 className="py-2 text-2xl font-bold">Users</h3>
         <section className="grid gap-4 pb-4 lg:grid-cols-2">
