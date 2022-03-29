@@ -20,6 +20,11 @@ const projectBytesData = [
     url: '/march/spa',
     info: 'Single Page Application for Flex Strip',
   },
+  {
+    title: 'RMDB - Rick and Morty DB',
+    url: '/march/rmdb',
+    info: 'PWA using the Rick and Morty API',
+  },
 ];
 
 export default projectBytesData;

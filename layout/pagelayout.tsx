@@ -7,7 +7,7 @@ type Props = {
 
 const PageLayout: FC<Props> = ({ children }) => {
   return (
-    <div className="flex flex-col gap-4 pb-4 md:col-start-4 md:col-span-6 sm:col-span-4 sm:col-start-2">
+    <div className="flex flex-col gap-4 px-2 py-6 md:col-start-4 md:col-span-6 sm:col-span-4 sm:col-start-2">
       <Header />
       {children}
     </div>

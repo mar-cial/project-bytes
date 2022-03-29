@@ -7,7 +7,10 @@ type Props = {
 
 const MainLink = (props: Props) => {
   return (
-    <a href={props.url} className="text-orange-500">
+    <a
+      href={props.url}
+      className="text-orange-400 transition-all hover:text-orange-500"
+    >
       {props.text}
     </a>
   );
